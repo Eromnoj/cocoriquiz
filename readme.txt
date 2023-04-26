@@ -35,7 +35,9 @@ Maybe, maybe not... If a lot of people ask, why not...
 
 == Screenshots ==
 
-1. The quiz in its more simple design.
+1. Some design features are customizable directly from the toolbar...
+2. multiple choice of category (still needs to expand the database, you can propose your quiz from the page of the project)
+3. Render the block wherever you want to, and adapt it to your design
 
 == Changelog ==
 
