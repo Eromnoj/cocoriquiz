@@ -58,13 +58,12 @@ export default function Edit({ attributes, setAttributes }) {
 						</div>
 						<div className="simplequizblock-answers">
 
-							<div className={"simplequizblock-unique-answer " + (attributes.fill ? "good-fill" : "good-border")}>Rouge</div>
-							<div className={"simplequizblock-unique-answer " + (attributes.fill ? "bad-fill" : "bad-border")}>Blanc</div>
+							<div className={"simplequizblock-unique-answer " + (attributes.fill ? "simplequizblock-good-fill" : "simplequizblock-good-border")}>Rouge</div>
+							<div className={"simplequizblock-unique-answer " + (attributes.fill ? "simplequizblock-bad-fill" : "simplequizblock-bad-border")}>Blanc</div>
 							<div className="simplequizblock-unique-answer">Crème</div>
 							<div className="simplequizblock-unique-answer">La réponse D</div>
 
 						</div>
-						<div className="signature"><a href="https://quizzapi.jomoreschi.fr/" target="_blank">Proposez vos questions en cliquant ici</a></div>
 					</div>
 			</div>
 		</>

@@ -53,8 +53,9 @@ function show_quiz_response($attributes, $url)
       }
       ?>
     </div>
-    <div class="simplequizblock-result"></div>
-    <div class="signature"><a href="https://quizzapi.jomoreschi.fr/" target="_blank">Proposez vos questions</a></div>
+    <div class="simplequizblock-result" hidden>
+      <div class="simplequizblock-signature"><a class="simplequizblock-signature-link" href="https://quizzapi.jomoreschi.fr/" target="_blank">Proposez vos questions</a></div>
+    </div>
     <!-- Pass the good Answer through an Hidden div -->
     <div class="simplequizblock-good" hidden><?= $answer ?></div>
     <div class="simplequizblock-fill" hidden><?= $attributes['fill'] ?></div>

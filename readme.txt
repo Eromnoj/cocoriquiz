@@ -16,6 +16,8 @@ Font size and colors are customizable. You can choose a theme and the difficulty
 
 The blocks uses quiz from the Simple Quiz fr API : https://quizzapi.jomoreschi.fr/.
 
+Don't hesitate to propose your quiz on the project's page ! 
+
 
 == Installation ==
 
@@ -35,9 +37,9 @@ Maybe, maybe not... If a lot of people ask, why not...
 
 == Screenshots ==
 
-1. Some design features are customizable directly from the toolbar...
-2. multiple choice of category (still needs to expand the database, you can propose your quiz from the page of the project)
-3. Render the block wherever you want to, and adapt it to your design
+1. Design it as you like
+2. multiple choice of category (still needs to expand the database, you can propose your quiz from the project's page)
+3. Render the block wherever you want to
 
 == Changelog ==
 

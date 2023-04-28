@@ -17,18 +17,18 @@ Array.from(quizId).forEach(el => {
     answer.addEventListener('click', () => {
 
       if (isClicked === false) {
-        result.innerHTML = '<div></div>'
         let resultContent = document.createElement('div')
         if (answer.textContent === goodAnswer.textContent) {
-          resultContent.classList.add('good-answer')
-          hidden.textContent === '1' ? answer.classList.add('good-fill') : answer.classList.add('good-border')
+          resultContent.classList.add('simplequizblock-good-answer')
+          hidden.textContent === '1' ? answer.classList.add('simplequizblock-good-fill') : answer.classList.add('simplequizblock-good-border')
           resultContent.append('Félicitation ! 🥳')
         } else {
-          resultContent.classList.add('bad-answer')
-          hidden.textContent === '1' ? answer.classList.add('bad-fill') : answer.classList.add('bad-border')
+          resultContent.classList.add('simplequizblock-bad-answer')
+          hidden.textContent === '1' ? answer.classList.add('simplequizblock-bad-fill') : answer.classList.add('simplequizblock-bad-border')
           resultContent.append(`Mauvaise réponse 😔... La bonne réponse était : ${goodAnswer.textContent}`)
         }
-        result.append(resultContent)
+        result.prepend(resultContent)
+        result.hidden = false
         isClicked = true
       }
     })
