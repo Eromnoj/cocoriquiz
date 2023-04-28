@@ -5,20 +5,22 @@
  * @param $dif String Difficulty from this enum ["facile","normal", "difficile", "all"]
  * @param $elv Boolean Show or not a shadow around the block
  * @param $fill Boolean Fill or not the answer pill
+ * @param $url Url of the API
  * 
  */
 
-function show_quiz_response($cat, $dif, $elv, $fill)
+function show_quiz_response($attributes, $url)
 {
+
   // Construct and perform the API request
-  $category = $cat === 'all' ? '' : '&category=' . $cat;
-  $difficulty = $dif === 'all' ? '' : '&difficulty=' . $dif;
-  $response = file_get_contents('https://quizzapi.jomoreschi.fr/api/v1/quiz?limit=1' . $category . $difficulty);
+  $category = $attributes['category'] === 'all' ? '' : '&category=' . $attributes['category'];
+  $difficulty = $attributes['difficulty'] === 'all' ? '' : '&difficulty=' . $attributes['difficulty'];
+  $response = file_get_contents($url . $category . $difficulty);
   $response = json_decode($response);
 
   // if there isn't any corresponding quiz, just selected a random quiz from all the DB
   if($response->count == 0){
-    $response = file_get_contents('https://quizzapi.jomoreschi.fr/api/v1/quiz?limit=1');
+    $response = file_get_contents($url);
     $response = json_decode($response);
   }
 
@@ -37,7 +39,7 @@ function show_quiz_response($cat, $dif, $elv, $fill)
 ?>
     <!-- Pass the Unique ID through an hidden DIV, and attribute this ID to the main div -->
     <div class="simplequizblock-random-id" hidden><?= $randomId ?></div>
-  <div class="simplequizblock-container <?= $elv ? "simplequizblock-shadow" : ""?>" id="<?= $randomId ?>">
+  <div class="simplequizblock-container <?= $attributes['elevation'] ? "simplequizblock-shadow" : ""?>" id="<?= $randomId ?>">
     <div class="simplequizblock-question">
       <?= $question ?>
     </div>
@@ -51,11 +53,12 @@ function show_quiz_response($cat, $dif, $elv, $fill)
       }
       ?>
     </div>
+    <div class="simplequizblock-result"></div>
+    <div class="signature"><a href="https://quizzapi.jomoreschi.fr/" target="_blank">Proposez vos questions</a></div>
     <!-- Pass the good Answer through an Hidden div -->
     <div class="simplequizblock-good" hidden><?= $answer ?></div>
-    <div class="simplequizblock-fill" hidden><?= $fill ?></div>
-    <div class="simplequizblock-result"></div>
-    <div class="signature">Powered with <a href="https://quizzapi.jomoreschi.fr/">simplequizblock</a></div>
+    <div class="simplequizblock-fill" hidden><?= $attributes['fill'] ?></div>
+
   </div>
 <?php
 }

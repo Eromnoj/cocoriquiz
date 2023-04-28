@@ -64,7 +64,7 @@ export default function Edit({ attributes, setAttributes }) {
 							<div className="simplequizblock-unique-answer">La réponse D</div>
 
 						</div>
-						<div className="signature">Powered with <a href="https://quizzapi.jomoreschi.fr/">SimpleQuizFr API</a></div>
+						<div className="signature"><a href="https://quizzapi.jomoreschi.fr/" target="_blank">Proposez vos questions en cliquant ici</a></div>
 					</div>
 			</div>
 		</>
