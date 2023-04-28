@@ -52,19 +52,19 @@ export default function Edit({ attributes, setAttributes }) {
 			</BlockControls>
 
 			<div {...useBlockProps()}>
-					<div className={"cocoriquiz-container " + (attributes.elevation ? "cocoriquiz-shadow" : "")}>
-						<div className="cocoriquiz-question">
+					<div className={"simplequizblock-container " + (attributes.elevation ? "simplequizblock-shadow" : "")}>
+						<div className="simplequizblock-question">
 							De quelle couleur est le cheval blanc d'Henry IV ?
 						</div>
-						<div className="cocoriquiz-answers">
+						<div className="simplequizblock-answers">
 
-							<div className={"cocoriquiz-unique-answer " + (attributes.fill ? "good-fill" : "good-border")}>Rouge</div>
-							<div className={"cocoriquiz-unique-answer " + (attributes.fill ? "bad-fill" : "bad-border")}>Blanc</div>
-							<div className="cocoriquiz-unique-answer">Crème</div>
-							<div className="cocoriquiz-unique-answer">La réponse D</div>
+							<div className={"simplequizblock-unique-answer " + (attributes.fill ? "good-fill" : "good-border")}>Rouge</div>
+							<div className={"simplequizblock-unique-answer " + (attributes.fill ? "bad-fill" : "bad-border")}>Blanc</div>
+							<div className="simplequizblock-unique-answer">Crème</div>
+							<div className="simplequizblock-unique-answer">La réponse D</div>
 
 						</div>
-						<div className="signature">Powered with <a href="https://quizzapi.jomoreschi.fr/">Cocoriquiz</a></div>
+						<div className="signature">Powered with <a href="https://quizzapi.jomoreschi.fr/">SimpleQuizFr API</a></div>
 					</div>
 			</div>
 		</>

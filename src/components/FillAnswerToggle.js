@@ -8,7 +8,7 @@ const FillAnswerToggle = ({attributes, setAttributes}) => {
     label="Plein"
     checked={attributes.fill}
     onChange={()=> setAttributes({fill: !attributes.fill})}
-    className='menu-icon-cocoriquiz'
+    className='menu-icon-simplequizblock'
     />
   )
 }

@@ -9,7 +9,7 @@ const ElevationToggle = ({attributes, setAttributes}) => {
     label="Ombre"
     checked={attributes.elevation}
     onChange={()=> setAttributes({elevation: !attributes.elevation})}
-    className='menu-icon-cocoriquiz'
+    className='menu-icon-simplequizblock'
     />
   )
 }

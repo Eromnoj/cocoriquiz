@@ -36,26 +36,26 @@ function show_quiz_response($cat, $dif, $elv, $fill)
 
 ?>
     <!-- Pass the Unique ID through an hidden DIV, and attribute this ID to the main div -->
-    <div class="cocoriquiz-random-id" hidden><?= $randomId ?></div>
-  <div class="cocoriquiz-container <?= $elv ? "cocoriquiz-shadow" : ""?>" id="<?= $randomId ?>">
-    <div class="cocoriquiz-question">
+    <div class="simplequizblock-random-id" hidden><?= $randomId ?></div>
+  <div class="simplequizblock-container <?= $elv ? "simplequizblock-shadow" : ""?>" id="<?= $randomId ?>">
+    <div class="simplequizblock-question">
       <?= $question ?>
     </div>
-    <div class="cocoriquiz-answers">
+    <div class="simplequizblock-answers">
       <!-- Display the answers' array -->
       <?php
       for ($i = 0; $i < sizeof($allAnswers); $i++) {
       ?>
-        <div class="cocoriquiz-unique-answer"><?= $allAnswers[$i] ?></div>
+        <div class="simplequizblock-unique-answer"><?= $allAnswers[$i] ?></div>
       <?php
       }
       ?>
     </div>
     <!-- Pass the good Answer through an Hidden div -->
-    <div class="cocoriquiz-good" hidden><?= $answer ?></div>
-    <div class="cocoriquiz-fill" hidden><?= $fill ?></div>
-    <div class="cocoriquiz-result"></div>
-    <div class="signature">Powered with <a href="https://quizzapi.jomoreschi.fr/">Cocoriquiz</a></div>
+    <div class="simplequizblock-good" hidden><?= $answer ?></div>
+    <div class="simplequizblock-fill" hidden><?= $fill ?></div>
+    <div class="simplequizblock-result"></div>
+    <div class="signature">Powered with <a href="https://quizzapi.jomoreschi.fr/">simplequizblock</a></div>
   </div>
 <?php
 }

@@ -8,7 +8,7 @@ const CategoryDropDown = ({attributes, setAttributes}) => {
     <DropdownMenu
     icon={'lightbulb'}
     label="Choisir une catégorie"
-    className='menu-icon-cocoriquiz'
+    className='menu-icon-simplequizblock'
   >
     {
       ({ onClose }) => (

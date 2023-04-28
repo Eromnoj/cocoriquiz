@@ -1,14 +1,14 @@
 // Getting the unique Ids
-const quizId = document.querySelectorAll('.cocoriquiz-random-id')
+const quizId = document.querySelectorAll('.simplequizblock-random-id')
 
 // Getting the corresponding container to each Id
 Array.from(quizId).forEach(el => {
   // Select Element from depending on the container
   const quizContainer = document.getElementById(el.textContent)
-  const goodAnswer = quizContainer.querySelector('.cocoriquiz-good')
-  const hidden = quizContainer.querySelector('.cocoriquiz-fill')
-  const allAnswers = quizContainer.querySelectorAll('.cocoriquiz-unique-answer')
-  const result = quizContainer.querySelector('.cocoriquiz-result')
+  const goodAnswer = quizContainer.querySelector('.simplequizblock-good')
+  const hidden = quizContainer.querySelector('.simplequizblock-fill')
+  const allAnswers = quizContainer.querySelectorAll('.simplequizblock-unique-answer')
+  const result = quizContainer.querySelector('.simplequizblock-result')
 
   // prevent to click a second time after the user as answer
   let isClicked = false

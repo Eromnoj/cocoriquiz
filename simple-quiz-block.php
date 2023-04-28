@@ -1,16 +1,15 @@
 <?php
 /**
- * Plugin Name:       Cocoriquiz
- * Description:       Ajoutez un encadré dédié avec une question issue de l'API Cocoriquiz via l'éditeur de bloc
+ * Plugin Name:       Simple Quiz Block
+ * Description:       Ajoutez un encadré dédié avec une question issue de l'API Simple Quiz Fr via l'éditeur de bloc
  * Author URI: https://quizzapi.jomoreschi.fr/
  * Requires at least: 6.1
  * Requires PHP:      7.0
  * Version:           0.1.0
  * Author:            Jonathan Moreschi
  * License:           GPL-2.0-or-later
- * Text Domain:       Cocoriquiz
+ * Text Domain:       simple-quiz-block
  *
- * @package           create-block
  */
 
 /**
@@ -33,9 +32,9 @@ add_action( 'init', 'create_block_training_block_init' );
 /**
  * JS script import for interactive display in the front end
  */
-function cocoriquiz_js_script()
+function simplequizblock_js_script()
 {
-	wp_enqueue_script('cocoriquiz-interact', plugins_url('/public/js/cocoriquiz-interact.js', __FILE__), array(), '1.0.0', true);
+	wp_enqueue_script('simplequizblock-interact', plugins_url('/public/js/simplequizblock-interact.js', __FILE__), array(), '1.0.0', true);
 }
 
-add_action('wp_enqueue_scripts','cocoriquiz_js_script');
+add_action('wp_enqueue_scripts','simplequizblock_js_script');

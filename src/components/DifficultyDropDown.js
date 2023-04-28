@@ -7,7 +7,7 @@ const DifficultyDropDown = ({attributes, setAttributes}) => {
     <DropdownMenu
     icon={'coffee'}
     label="Choisir une difficulté"
-    className='menu-icon-cocoriquiz'>
+    className='menu-icon-simplequizblock'>
     {
       ({ onClose }) => (
         <>
