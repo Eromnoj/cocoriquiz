@@ -39,32 +39,44 @@ import ElevationToggle from './components/ElevationToggle';
 import FillAnswerToggle from './components/FillAnswerToggle';
 import CategoryDropDown from './components/CategoryDropDown';
 import DifficultyDropDown from './components/DifficultyDropDown';
+import ShowLinkToggle from './components/ShowLinkToggle';
 
 export default function Edit({ attributes, setAttributes }) {
 
 	return (
 		<>
-		<BlockControls>
+			<BlockControls>
 				<ElevationToggle attributes={attributes} setAttributes={setAttributes} />
 				<FillAnswerToggle attributes={attributes} setAttributes={setAttributes} />
 				<CategoryDropDown attributes={attributes} setAttributes={setAttributes} />
 				<DifficultyDropDown attributes={attributes} setAttributes={setAttributes} />
+				<ShowLinkToggle attributes={attributes} setAttributes={setAttributes} />
+
 			</BlockControls>
 
 			<div {...useBlockProps()}>
-					<div className={"simplequizblock-container " + (attributes.elevation ? "simplequizblock-shadow" : "")}>
-						<div className="simplequizblock-question">
-							De quelle couleur est le cheval blanc d'Henry IV ?
-						</div>
-						<div className="simplequizblock-answers">
-
-							<div className={"simplequizblock-unique-answer " + (attributes.fill ? "simplequizblock-good-fill" : "simplequizblock-good-border")}>Rouge</div>
-							<div className={"simplequizblock-unique-answer " + (attributes.fill ? "simplequizblock-bad-fill" : "simplequizblock-bad-border")}>Blanc</div>
-							<div className="simplequizblock-unique-answer">Crème</div>
-							<div className="simplequizblock-unique-answer">La réponse D</div>
-
-						</div>
+				<div className={"simplequizblock-container " + (attributes.elevation ? "simplequizblock-shadow" : "")}>
+					<div className="simplequizblock-question">
+						De quelle couleur est le cheval blanc d'Henry IV ?
 					</div>
+					<div className="simplequizblock-answers">
+
+						<div className={"simplequizblock-unique-answer " + (attributes.fill ? "simplequizblock-good-fill" : "simplequizblock-good-border")}>Rouge</div>
+						<div className={"simplequizblock-unique-answer " + (attributes.fill ? "simplequizblock-bad-fill" : "simplequizblock-bad-border")}>Blanc</div>
+						<div className="simplequizblock-unique-answer">Crème</div>
+						<div className="simplequizblock-unique-answer">La réponse D</div>
+
+					</div>
+					<div className="simplequizblock-result">
+						<div className='simplequizblock-good-answer'>
+							'Félicitation ! 🥳'
+						</div>
+						{attributes.showLink ?
+							<div className="simplequizblock-signature"><p class="simplequizblock-signature-link">Proposez vos questions</p></div>
+							: null
+						}
+					</div>
+				</div>
 			</div>
 		</>
 	);

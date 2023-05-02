@@ -26,6 +26,10 @@
 		"fill":{
 			"type":"boolean",
 			"default": false
+		},
+		"showLink":{
+			"type":"boolean",
+			"default": false
 		}
 	},
 	"supports": {

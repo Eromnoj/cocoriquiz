@@ -24,17 +24,17 @@
 require_once __DIR__.'/public/show_quiz_response.php';
 
 
-function create_block_training_block_init() {
+function simplequizblock_create_block_init() {
 	register_block_type( __DIR__ . '/build' );
 }
-add_action( 'init', 'create_block_training_block_init' );
+add_action( 'init', 'simplequizblock_create_block_init' );
 
 /**
  * JS script import for interactive display in the front end
  */
 function simplequizblock_js_script()
 {
-	wp_enqueue_script('simplequizblock-interact', plugins_url('/public/js/simplequizblock-interact.js', __FILE__), array(), '1.0.0', true);
+	wp_enqueue_script('simplequizblock-interact', plugins_url('/public/js/simplequizblock-interact.js', __FILE__), array(), '0.1.0', true);
 }
 
 add_action('wp_enqueue_scripts','simplequizblock_js_script');

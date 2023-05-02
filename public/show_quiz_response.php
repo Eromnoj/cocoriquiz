@@ -9,19 +9,21 @@
  * 
  */
 
-function show_quiz_response($attributes, $url)
+function simplequizblock_show_quiz_response($attributes, $url)
 {
 
   // Construct and perform the API request
   $category = $attributes['category'] === 'all' ? '' : '&category=' . $attributes['category'];
   $difficulty = $attributes['difficulty'] === 'all' ? '' : '&difficulty=' . $attributes['difficulty'];
-  $response = file_get_contents($url . $category . $difficulty);
+  $response = wp_remote_get($url . $category . $difficulty);
+  $response = $response['body'];
   $response = json_decode($response);
 
   // if there isn't any corresponding quiz, just selected a random quiz from all the DB
   if($response->count == 0){
-    $response = file_get_contents($url);
-    $response = json_decode($response);
+  $response = wp_remote_get($url);
+  $response = $response['body'];
+  $response = json_decode($response);
   }
 
   // Get data to display
@@ -38,27 +40,28 @@ function show_quiz_response($attributes, $url)
 
 ?>
     <!-- Pass the Unique ID through an hidden DIV, and attribute this ID to the main div -->
-    <div class="simplequizblock-random-id" hidden><?= $randomId ?></div>
-  <div class="simplequizblock-container <?= $attributes['elevation'] ? "simplequizblock-shadow" : ""?>" id="<?= $randomId ?>">
+    <?php echo $attributes['showLink'] ? true : false; ?>
+    <div class="simplequizblock-random-id" hidden><?php echo esc_html($randomId); ?></div>
+  <div class="simplequizblock-container <?php echo $attributes['elevation'] ? esc_attr("simplequizblock-shadow") : null;?>" id="<?php echo esc_attr($randomId); ?>">
     <div class="simplequizblock-question">
-      <?= $question ?>
+      <?php echo esc_html($question); ?>
     </div>
     <div class="simplequizblock-answers">
       <!-- Display the answers' array -->
       <?php
       for ($i = 0; $i < sizeof($allAnswers); $i++) {
       ?>
-        <div class="simplequizblock-unique-answer"><?= $allAnswers[$i] ?></div>
+        <div class="simplequizblock-unique-answer"><?php echo esc_html($allAnswers[$i]); ?></div>
       <?php
       }
       ?>
     </div>
     <div class="simplequizblock-result" hidden>
-      <div class="simplequizblock-signature"><a class="simplequizblock-signature-link" href="https://quizzapi.jomoreschi.fr/" target="_blank">Proposez vos questions</a></div>
+      <div class="simplequizblock-signature"  <?php echo $attributes['showLink'] ? null : esc_attr("hidden"); ?>><a class="simplequizblock-signature-link" href="https://quizzapi.jomoreschi.fr/" target="_blank">Proposez vos questions</a></div>
     </div>
     <!-- Pass the good Answer through an Hidden div -->
-    <div class="simplequizblock-good" hidden><?= $answer ?></div>
-    <div class="simplequizblock-fill" hidden><?= $attributes['fill'] ?></div>
+    <div class="simplequizblock-good" hidden><?php echo esc_html($answer); ?></div>
+    <div class="simplequizblock-fill" hidden><?php echo esc_html($attributes['fill']); ?></div>
 
   </div>
 <?php
