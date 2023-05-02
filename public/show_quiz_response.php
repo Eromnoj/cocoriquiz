@@ -40,7 +40,6 @@ function simplequizblock_show_quiz_response($attributes, $url)
 
 ?>
     <!-- Pass the Unique ID through an hidden DIV, and attribute this ID to the main div -->
-    <?php echo $attributes['showLink'] ? true : false; ?>
     <div class="simplequizblock-random-id" hidden><?php echo esc_html($randomId); ?></div>
   <div class="simplequizblock-container <?php echo $attributes['elevation'] ? esc_attr("simplequizblock-shadow") : null;?>" id="<?php echo esc_attr($randomId); ?>">
     <div class="simplequizblock-question">
