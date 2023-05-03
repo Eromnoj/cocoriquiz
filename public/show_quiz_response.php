@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Function that return the render
  * @param $cat String Category from this enum ["tv_cinema", "art_litterature", "musique", "actu_politique", "culture_generale", "sport", "jeux_videos", "all"]
@@ -20,10 +21,10 @@ function simplequizblock_show_quiz_response($attributes, $url)
   $response = json_decode($response);
 
   // if there isn't any corresponding quiz, just selected a random quiz from all the DB
-  if($response->count == 0){
-  $response = wp_remote_get($url);
-  $response = $response['body'];
-  $response = json_decode($response);
+  if ($response->count == 0) {
+    $response = wp_remote_get($url);
+    $response = $response['body'];
+    $response = json_decode($response);
   }
 
   // Get data to display
@@ -35,13 +36,13 @@ function simplequizblock_show_quiz_response($attributes, $url)
   $allAnswers[] = $answer;
   shuffle($allAnswers);
   // generate Unique Id to allow multiple quiz block on a single page
-  $str=rand();
+  $str = rand();
   $randomId = md5($str);
 
 ?>
-    <!-- Pass the Unique ID through an hidden DIV, and attribute this ID to the main div -->
-    <div class="simplequizblock-random-id" hidden><?php echo esc_html($randomId); ?></div>
-  <div class="simplequizblock-container <?php echo $attributes['elevation'] ? esc_attr("simplequizblock-shadow") : null;?>" id="<?php echo esc_attr($randomId); ?>">
+  <!-- Pass the Unique ID through an hidden DIV, and attribute this ID to the main div -->
+  <div class="simplequizblock-random-id" hidden><?php echo esc_html($randomId); ?></div>
+  <div class="simplequizblock-container <?php echo $attributes['elevation'] ? esc_attr("simplequizblock-shadow") : null; ?>" id="<?php echo esc_attr($randomId); ?>">
     <div class="simplequizblock-question">
       <?php echo esc_html($question); ?>
     </div>
@@ -56,7 +57,6 @@ function simplequizblock_show_quiz_response($attributes, $url)
       ?>
     </div>
     <div class="simplequizblock-result" hidden>
-      <div class="simplequizblock-signature"  <?php echo $attributes['showLink'] ? null : esc_attr("hidden"); ?>><a class="simplequizblock-signature-link" href="https://quizzapi.jomoreschi.fr/" target="_blank">Proposez vos questions</a></div>
     </div>
     <!-- Pass the good Answer through an Hidden div -->
     <div class="simplequizblock-good" hidden><?php echo esc_html($answer); ?></div>

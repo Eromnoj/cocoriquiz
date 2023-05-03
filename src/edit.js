@@ -39,7 +39,6 @@ import ElevationToggle from './components/ElevationToggle';
 import FillAnswerToggle from './components/FillAnswerToggle';
 import CategoryDropDown from './components/CategoryDropDown';
 import DifficultyDropDown from './components/DifficultyDropDown';
-import ShowLinkToggle from './components/ShowLinkToggle';
 
 export default function Edit({ attributes, setAttributes }) {
 
@@ -50,7 +49,6 @@ export default function Edit({ attributes, setAttributes }) {
 				<FillAnswerToggle attributes={attributes} setAttributes={setAttributes} />
 				<CategoryDropDown attributes={attributes} setAttributes={setAttributes} />
 				<DifficultyDropDown attributes={attributes} setAttributes={setAttributes} />
-				<ShowLinkToggle attributes={attributes} setAttributes={setAttributes} />
 
 			</BlockControls>
 
@@ -71,10 +69,6 @@ export default function Edit({ attributes, setAttributes }) {
 						<div className='simplequizblock-good-answer'>
 							'Félicitation ! 🥳'
 						</div>
-						{attributes.showLink ?
-							<div className="simplequizblock-signature"><p class="simplequizblock-signature-link">Proposez vos questions</p></div>
-							: null
-						}
 					</div>
 				</div>
 			</div>
